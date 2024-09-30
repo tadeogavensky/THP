@@ -26,7 +26,7 @@ public class Test {
 		if (persona1.obtenerDomicilio() != null) {
 			System.out.println(persona1.obtenerDomicilio());
 		} else {
-			System.out.println("No tiene domicilio");
+			System.out.println("Soy homeless");
 		}
 		System.out.println();
 		
@@ -37,7 +37,7 @@ public class Test {
 		if (persona2.obtenerDomicilio() != null) {
 			System.out.println(persona1.obtenerDomicilio());
 		} else {
-			System.out.println("No tiene domicilio");
+			System.out.println("Soy homeless");
 		}
 
 	}

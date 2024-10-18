@@ -1,7 +1,5 @@
 package ejercicio13;
 
-import java.util.List;
-
 public class SuperHeroe {
 	private String nombre;
 	private int fuerza;
@@ -15,11 +13,14 @@ public class SuperHeroe {
 		setSuperpoderes(superpoderes);
 	}
 
-	public String competir(SuperHeroe otroSuperHeroe) {
+	public Resultado competir(SuperHeroe otroSuperHeroe) {
 		int puntajeSuperHeroe = 0;
 		int puntajeOtroSuperHeroe = 0;
-		int PUNTAJE_GANADOR = 2;
+		final int PUNTAJE_GANADOR = 2;
 		
+		System.out.println(this.fuerza);
+		System.out.println(otroSuperHeroe.fuerza);
+
 		if (this.fuerza > otroSuperHeroe.fuerza) {
 			puntajeSuperHeroe++;
 		} else if (this.fuerza < otroSuperHeroe.fuerza) {
@@ -37,15 +38,14 @@ public class SuperHeroe {
 		}
 
 		if (puntajeSuperHeroe >= PUNTAJE_GANADOR) {
-			return Resultado.TRIUNFO.toString();
+			return Resultado.TRIUNFO;
 		} else if (puntajeOtroSuperHeroe >= PUNTAJE_GANADOR) {
-			return Resultado.DERROTA.toString();
+			return Resultado.DERROTA;
 		} else {
-			return Resultado.EMPATE.toString();
+			return Resultado.EMPATE;
 		}
 
 	}
-
 
 	public String getNombre() {
 		return nombre;
@@ -60,11 +60,7 @@ public class SuperHeroe {
 	}
 
 	public void setFuerza(int fuerza) {
-		if (fuerza < 0)
-			fuerza = 0;
-		if (fuerza > 100)
-			fuerza = 100;
-		this.fuerza = fuerza;
+		this.fuerza = validarAtributo(fuerza);
 	}
 
 	public int getResistencia() {
@@ -72,11 +68,7 @@ public class SuperHeroe {
 	}
 
 	public void setResistencia(int resistencia) {
-		if (resistencia < 0)
-			resistencia = 0;
-		if (resistencia > 100)
-			resistencia = 100;
-		this.resistencia = resistencia;
+		this.resistencia = validarAtributo(resistencia);
 	}
 
 	public int getSuperpoderes() {
@@ -84,11 +76,17 @@ public class SuperHeroe {
 	}
 
 	public void setSuperpoderes(int superpoderes) {
-		if (superpoderes < 0)
-			superpoderes = 0;
-		if (superpoderes > 100)
-			superpoderes = 100;
-		this.superpoderes = superpoderes;
+		this.superpoderes = validarAtributo(superpoderes);
+	}
+
+	private static int validarAtributo(int atributo) {
+		int MIN = 0;
+		int MAX = 100;
+		if (atributo < MIN)
+			atributo = MIN;
+		if (atributo > MAX)
+			atributo = MAX;
+		return atributo;
 	}
 
 	@Override

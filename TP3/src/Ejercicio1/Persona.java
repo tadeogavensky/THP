@@ -1,4 +1,4 @@
-package ejercicio2al5;
+package Ejercicio1;
 
 public class Persona {
 	private String nombre;
@@ -11,9 +11,11 @@ public class Persona {
 		apellido = "";
 	}
 	
-	public Persona(String nombre, String apellido) {
+	public Persona(String nombre, String apellido, Domicilio domicilio, String dni) {
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.domicilio = domicilio;
+		this.dni = dni;
 	}
 
 	
@@ -36,17 +38,12 @@ public class Persona {
 	}
 	
 	
-
-	public String getDni() {
+	public String getDNI() {
 		return dni;
 	}
 
-	public void setDni(String dni) {
+	public void setDNI(String dni) {
 		this.dni = dni;
-	}
-
-	public Domicilio getDomicilio() {
-		return domicilio;
 	}
 
 	public Domicilio obtenerDomicilio() {
@@ -56,6 +53,7 @@ public class Persona {
 			return null;
 		}
 	}
+	
 
 	public void setDomicilio(Domicilio domicilio) {
 		this.domicilio = domicilio;
@@ -67,7 +65,7 @@ public class Persona {
 
 	@Override
 	public String toString() {
-		return "Persona [nombre=" + nombre + ", apellido=" + apellido + "]";
+		return "Persona [nombre=" + nombre + ", apellido=" + apellido +  ", dni=" + dni + ", domicilio=" + domicilio +"]";
 	}
 
 
